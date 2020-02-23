@@ -4,4 +4,4 @@ Thanks @coolsnowwolf @P3TERX @KFERMercer @82kg
 
 This actions will build only english verison firmware with only two app included (ssr-plus and turbo acc). 
 
-https://raw.githubusercontent.com/xh116/OpenWrt-Actions/master/screeshot.png
+![image](https://raw.githubusercontent.com/xh116/OpenWrt-Actions/master/screeshot.png)
