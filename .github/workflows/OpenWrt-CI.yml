@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/82kg/autoBuildOP>
 
-name: Openwrt-X86_64-2020-02-24 EN verison
+name: Openwrt-X86_64-2020-02-24 TEST
 
 on:
   push:
