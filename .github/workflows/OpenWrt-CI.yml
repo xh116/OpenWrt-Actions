@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/82kg/autoBuildOP>
 
-name: Openwrt-X86_64-2020-02-24 TEST2
+name: Openwrt-X86_64-2020-02-25 
 
 on:
   push:
@@ -185,11 +185,9 @@ jobs:
           
           # Translations
           cat >> .config <<EOF
-          CONFIG_PACKAGE_default-settings=n
           CONFIG_PACKAGE_luci-i18n-base-en=y
-          CONFIG_PACKAGE_luci-i18n-base-zh-cn=n
-          CONFIG_LUCI_LANG_en=y
           CONFIG_LUCI_LANG_zh-cn=n          
+          CONFIG_LUCI_LANG_en=y                    
           EOF
           
           # LuCI主题:
