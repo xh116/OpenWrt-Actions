@@ -182,8 +182,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-unblockneteasemusic-mini=n
           CONFIG_PACKAGE_luci-app-xlnetacc=n
           CONFIG_PACKAGE_luci-app-wrtbwmon=n
-          CONFIG_PACKAGE_luci-app-ramfree=n
-                             
+          CONFIG_PACKAGE_luci-app-ramfree=n                             
           EOF
           
           # Translations
