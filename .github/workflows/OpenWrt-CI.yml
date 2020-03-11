@@ -178,8 +178,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-samba=n
           CONFIG_PACKAGE_luci-app-sqm=n          
           CONFIG_PACKAGE_luci-app-v2ray-server=n
-          CONFIG_PACKAGE_luci-app-unblockmusic=n
-          CONFIG_PACKAGE_luci-app-unblockneteasemusic-mini=y
+          CONFIG_PACKAGE_luci-app-unblockmusic=y          
           CONFIG_PACKAGE_luci-app-xlnetacc=n
           CONFIG_PACKAGE_luci-app-wrtbwmon=n
           CONFIG_PACKAGE_luci-app-ramfree=n                             
