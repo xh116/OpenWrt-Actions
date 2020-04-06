@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/82kg/autoBuildOP>
 
-name: Openwrt-X86_64-2020402
+name: Openwrt-X86_64-2020406
 
 on:
   push:
@@ -185,7 +185,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-ramfree=n                             
           EOF
           
-          # Translations
+          # Translations:
           cat >> .config <<EOF                  
           CONFIG_LUCI_LANG_en=y                    
           EOF
@@ -198,8 +198,7 @@ jobs:
 
           # 常用软件包:
           cat >> .config <<EOF
-          CONFIG_PACKAGE_autosamba=n
-          CONFIG_PACKAGE_ipv6-helper=y                       
+          CONFIG_PACKAGE_autosamba=n                               
           # CONFIG_PACKAGE_curl=y
           # CONFIG_PACKAGE_htop=y
           # CONFIG_PACKAGE_nano=y
