@@ -154,7 +154,8 @@ jobs:
           CONFIG_PACKAGE_luci-app-filetransfer=n
           CONFIG_PACKAGE_luci-app-arpbind=n
           CONFIG_PACKAGE_luci-app-airplay2=n
-          CONFIG_PACKAGE_luci-app-ddns=n
+          CONFIG_PACKAGE_luci-app-ddns=n          
+          CONFIG_PACKAGE_luci-app-diskman=n
           CONFIG_PACKAGE_luci-app-flowoffload=y        
           CONFIG_PACKAGE_luci-app-firewall=n          
           CONFIG_PACKAGE_luci-app-ssr-plus=y
@@ -182,7 +183,9 @@ jobs:
           CONFIG_PACKAGE_luci-app-unblockmusic=n          
           CONFIG_PACKAGE_luci-app-xlnetacc=n
           CONFIG_PACKAGE_luci-app-wrtbwmon=n
-          CONFIG_PACKAGE_luci-app-ramfree=n                             
+          CONFIG_PACKAGE_luci-app-ramfree=n
+          CONFIG_PACKAGE_luci-app-openvpn-server=n           
+          CONFIG_PACKAGE_luci-app-music-remote-center=n                                      
           EOF
           
           # Translations:
