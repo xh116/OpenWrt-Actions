@@ -59,6 +59,9 @@ jobs:
           REPO_URL: https://github.com/coolsnowwolf/lede
           REPO_BRANCH: master
         run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+      
+      - name: add helloword
+        run: cd openwrt && git clone https://github.com/fw876/helloworld package/openwrt-packages/helloworld
 
       - name: Update feeds
         working-directory: ./openwrt
