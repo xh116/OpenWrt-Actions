@@ -187,7 +187,7 @@ jobs:
           # Translations:
           cat >> .config <<EOF                  
           CONFIG_LUCI_LANG_en=y
-          CONFIG_LUCI_LANG_cn=n                  
+          CONFIG_LUCI_LANG_zh-cn=n                 
           EOF
           
           # LuCI主题:
