@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/82kg/autoBuildOP>
 
-name: Openwrt-X86_64-2020916
+name: Openwrt-X86_64-2020922
 
 on:
   push:
@@ -161,7 +161,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-ddns=n          
           CONFIG_PACKAGE_luci-app-diskman=n
           CONFIG_PACKAGE_luci-app-flowoffload=n
-          CONFIG_PACKAGE_luci-app-sfe=n       
+          CONFIG_PACKAGE_luci-app-sfe=y      
           CONFIG_PACKAGE_luci-app-firewall=n          
           CONFIG_PACKAGE_luci-app-qbittorrent=n
           CONFIG_PACKAGE_luci-app-nlbwmon=n          
@@ -197,10 +197,10 @@ jobs:
 
           # 常用软件包:
           cat >> .config <<EOF
-          CONFIG_PACKAGE_autosamba=n                               
+          CONFIG_PACKAGE_autosamba=n  
+          CONFIG_PACKAGE_nano=y                             
           # CONFIG_PACKAGE_curl=y
-          # CONFIG_PACKAGE_htop=y
-          # CONFIG_PACKAGE_nano=y
+          # CONFIG_PACKAGE_htop=y          
           # CONFIG_PACKAGE_screen=y
           # CONFIG_PACKAGE_tree=y
           # CONFIG_PACKAGE_vim-fuller=y
