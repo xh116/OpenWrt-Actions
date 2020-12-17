@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/82kg/autoBuildOP>
 
-name: Openwrt-X86_64-2012017
+name: Openwrt-X86_64-2012018
 
 on:
   push:
@@ -192,8 +192,8 @@ jobs:
           EOF
           
           # LuCI主题:
-          cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-theme-argon=y
+          # cat >> .config <<EOF
+          # CONFIG_PACKAGE_luci-theme-argon=n
           # CONFIG_PACKAGE_luci-theme-netgear=n
           # EOF
 
