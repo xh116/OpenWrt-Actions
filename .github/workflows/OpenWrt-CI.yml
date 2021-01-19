@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/82kg/autoBuildOP>
 
-name: Openwrt-X86_64-210110
+name: Openwrt-X86_64-210120
 
 on:
   push:
@@ -240,7 +240,8 @@ jobs:
         run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
-          find ./bin/targets/ -name "*combined.img*" | xargs -i mv -f {} ./artifact/
+          find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
+          find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
           
       - name: Upload artifact
         uses: actions/upload-artifact@master
