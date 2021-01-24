@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/82kg/autoBuildOP>
 
-name: Openwrt-X86_64-210120
+name: Openwrt-X86_64-2101024
 
 on:
   push:
@@ -200,7 +200,8 @@ jobs:
           # 常用软件包:
           cat >> .config <<EOF
           CONFIG_PACKAGE_autosamba=n  
-          CONFIG_PACKAGE_nano=y                             
+          CONFIG_PACKAGE_nano=y
+          CONFIG_PACKAGE_ttyd=y
           # CONFIG_PACKAGE_curl=y
           # CONFIG_PACKAGE_htop=y          
           # CONFIG_PACKAGE_screen=y
