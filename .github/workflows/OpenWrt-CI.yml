@@ -183,7 +183,8 @@ jobs:
           CONFIG_PACKAGE_luci-app-wrtbwmon=n
           CONFIG_PACKAGE_luci-app-ramfree=n
           CONFIG_PACKAGE_luci-app-openvpn-server=n           
-          CONFIG_PACKAGE_luci-app-music-remote-center=n                                      
+          CONFIG_PACKAGE_luci-app-music-remote-center=n
+          CONFIG_PACKAGE_luci-app-uugamebooster=n          
           EOF
           
           # Translations:
