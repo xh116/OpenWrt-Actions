@@ -162,7 +162,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-ddns=n          
           CONFIG_PACKAGE_luci-app-diskman=n
           CONFIG_PACKAGE_luci-app-flowoffload=n
-          CONFIG_PACKAGE_luci-app-sfe=y      
+          CONFIG_PACKAGE_luci-app-sfe=n      
           CONFIG_PACKAGE_luci-app-firewall=n          
           CONFIG_PACKAGE_luci-app-qbittorrent=n
           CONFIG_PACKAGE_luci-app-nft-qos=n
