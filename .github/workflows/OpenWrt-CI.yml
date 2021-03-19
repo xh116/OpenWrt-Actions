@@ -152,7 +152,8 @@ jobs:
 
           # 常用LuCI插件选择:
           cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_NaiveProxy=y          
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_NaiveProxy=y 
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust=y   
           CONFIG_PACKAGE_luci-app-accesscontrol=n          
           CONFIG_PACKAGE_luci-app-adbyby-plus=n
           CONFIG_PACKAGE_luci-app-amule=n           
