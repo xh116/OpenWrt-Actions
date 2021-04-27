@@ -154,6 +154,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_NaiveProxy=y 
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Redsocks2=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=n
           CONFIG_PACKAGE_luci-app-jd-dailybonus=n          
           CONFIG_PACKAGE_luci-app-accesscontrol=n          
