@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/82kg/autoBuildOP>
 
-name: Openwrt-X86_64-210512
+name: Openwrt-X86_64-210515
 on:
   push:
      branches: 
@@ -153,6 +153,7 @@ jobs:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_NaiveProxy=y 
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust_Server=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Redsocks2=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=n
@@ -194,7 +195,8 @@ jobs:
           EOF
           
           # Translations:
-          cat >> .config <<EOF                  
+          cat >> .config <<EOF 
+          CONFIG_LUCI_LANG_zh-cn=n
           CONFIG_LUCI_LANG_en=y                
           EOF
           
