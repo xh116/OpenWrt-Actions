@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/82kg/autoBuildOP>
 
-name: Openwrt-X86_64-210523
+name: Openwrt-X86_64-210524
 on:
   push:
      branches: 
@@ -155,6 +155,10 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Redsocks2=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=n
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust_Client=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust_Server=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Client=n
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Server=n
           CONFIG_PACKAGE_luci-app-jd-dailybonus=n          
           CONFIG_PACKAGE_luci-app-accesscontrol=n          
           CONFIG_PACKAGE_luci-app-adbyby-plus=n
