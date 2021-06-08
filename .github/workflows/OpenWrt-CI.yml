@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/82kg/autoBuildOP>
 
-name: Openwrt-X86_64-210601
+name: Openwrt-X86_64-210608
 on:
   push:
      branches: 
