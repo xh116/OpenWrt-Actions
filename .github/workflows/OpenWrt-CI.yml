@@ -68,11 +68,7 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a          
       
-      - name: Set EN as default language
-        working-directory: ./openwrt
-        run: |
-          sed -i '/option lang auto/s/auto/en/g'  ./feeds/luci/modules/luci-base/root/etc/config/luci
-          
+         
       - name: Costom configure file
         working-directory: ./openwrt
         run: |
@@ -226,10 +222,10 @@ jobs:
           EOF
 
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
-          # cat >> .config <<EOF
-          # # CONFIG_TARGET_IMAGES_PAD is not set
-          # # CONFIG_VMDK_IMAGES is not set
-          # EOF
+         cat >> .config <<EOF
+         CONFIG_TARGET_IMAGES_PAD=n
+         CONFIG_VMDK_IMAGES=n
+         EOF
 
           # 
           # ========================固件定制部分结束========================
@@ -244,7 +240,12 @@ jobs:
           make download -j8
           find dl -size -1024c -exec ls -l {} \;
           find dl -size -1024c -exec rm -f {} \;
-
+          
+      - name: Set EN as default language
+        working-directory: ./openwrt
+        run: |
+          sed -i '/option lang auto/s/auto/en/g'  ./feeds/luci/modules/luci-base/root/etc/config/luci      
+          
       - name: Compile firmware
         working-directory: ./openwrt
         run: |
@@ -257,7 +258,7 @@ jobs:
           rm -rf ./artifact/
           mkdir -p ./artifact/
           find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
-          find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
+       # find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
           
       - name: Upload artifact
         uses: actions/upload-artifact@master
