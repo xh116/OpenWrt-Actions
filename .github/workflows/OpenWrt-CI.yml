@@ -10,8 +10,8 @@
 name: Openwrt-X86_64-210615
 on:
   push:
-     branches: 
-       - master
+    branches: [master]
+    paths-ignore: [README.md]
   #schedule:
     #- cron: 0 23 * * *
     
