@@ -196,6 +196,7 @@ jobs:
           
           # Translations:
           cat >> .config <<EOF 
+          CONFIG_PACKAGE_default-settings=n
           CONFIG_LUCI_LANG_zh-cn=n
           CONFIG_LUCI_LANG_en=y                
           EOF
