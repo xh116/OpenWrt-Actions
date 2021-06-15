@@ -68,10 +68,10 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a          
       
-      - name: Set EN as default language
-        working-directory: ./openwrt
-        run: |
-          sed -i '/option lang auto/s/auto/en/g'  ./feeds/luci/modules/luci-base/root/etc/config/luci   
+      #- name: Set EN as default language
+        #working-directory: ./openwrt
+        #run: |
+          #sed -i '/option lang auto/s/auto/en/g'  ./feeds/luci/modules/luci-base/root/etc/config/luci   
           
       - name: Costom configure file
         working-directory: ./openwrt
