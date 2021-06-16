@@ -10,7 +10,7 @@
 name: immortalwrt-CI
 on:
   push:
-    branches: [master]
+    branches: [immortalwrt]
     paths-ignore: [README.md]
   #schedule:
     #- cron: 0 23 * * *
