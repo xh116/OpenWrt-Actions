@@ -120,6 +120,7 @@ jobs:
           # 固件压缩:
           cat >> .config <<EOF
           CONFIG_TARGET_IMAGES_GZIP=y
+          CONFIG_TARGET_ROOTFS_TARGZ=y
           EOF
 
           # 编译UEFI固件:
@@ -254,7 +255,7 @@ jobs:
           rm -rf ./artifact/
           mkdir -p ./artifact/
           find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
-          find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
+       #find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
           
       - name: Upload artifact
         uses: actions/upload-artifact@master
