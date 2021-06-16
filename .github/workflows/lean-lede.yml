@@ -263,4 +263,3 @@ jobs:
         with:
           name: OpenWrt firmware
           path: openwrt/artifact
-
