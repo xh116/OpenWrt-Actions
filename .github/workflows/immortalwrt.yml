@@ -10,11 +10,7 @@
 name: immortalwrt-CI
 on:
   workflow_dispatch:
-    inputs:
-      name:
-        description: 'Manual Trigger'
-        required: false
-        default: 'Build'
+
   
   #schedule:
     #- cron: 0 23 * * *
