@@ -260,7 +260,8 @@ jobs:
           rm -rf ./artifact/
           mkdir -p ./artifact/
           find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
-          mv -f openwrt-x86-64-generic-rootfs.tar.gz ./artifact/
+          find ./bin/targets/ -name "*rootfs.tar*" | xargs -i mv -f {} ./artifact/
+
 
        # find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
           
