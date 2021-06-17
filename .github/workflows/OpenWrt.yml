@@ -270,3 +270,13 @@ jobs:
         with:
           name: OpenWrt firmware
           path: openwrt/artifact
+          
+      - name: Upload release asset
+        working-directory: ./openwrt
+        if: github.event == 'release'
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.RELEASE_TOKEN }}
+          file: ./artifact/openwrt-x86-64-generic-rootfs.tar.gz
+          tag: ${{ github.ref }}
+          file_glob: true
