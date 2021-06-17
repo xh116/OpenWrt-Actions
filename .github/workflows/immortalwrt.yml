@@ -97,10 +97,23 @@ jobs:
           find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
           mv -f immortalwrt-x86-64-generic-rootfs.tar.gz ./artifact/
        #find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
-          
+  
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
           name: ImmortalWrt 
           path: openwrt/artifact
 
+      - name: docker login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+      - name: Build the Docker image
+        working-directory: ./openwrt
+
+        run: docker build immortalwrt-x86-64-generic-rootfs.tar.gz --tag xh116/immortalwrt:latest
+      
+      - name: Docker Push
+        run: docker push xh116/immortalwrt   
