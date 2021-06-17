@@ -1,6 +1,6 @@
 # OpenWrt Firmware Build
-[![lean-lede](https://github.com/xh116/OpenWrt-Actions/actions/workflows/lean-lede.yml/badge.svg?branch=master)](https://github.com/xh116/OpenWrt-Actions/actions/workflows/lean-lede.yml)
-[![immortalwrt-CI](https://github.com/xh116/OpenWrt-Actions/actions/workflows/immortalwrt.yml/badge.svg)](https://github.com/xh116/OpenWrt-Actions/actions/workflows/immortalwrt.yml)
+[![OpenWrt-CI](https://github.com/xh116/OpenWrt-Actions/actions/workflows/OpenWrt.yml/badge.svg)](https://github.com/xh116/OpenWrt-Actions/actions/workflows/OpenWrt.yml)
+[![ImmortalWrt-CI](https://github.com/xh116/OpenWrt-Actions/actions/workflows/ImmortalWrt.yml/badge.svg)](https://github.com/xh116/OpenWrt-Actions/actions/workflows/ImmortalWrt.yml)
 
 
 Thanks @coolsnowwolf @P3TERX @KFERMercer @82kg
