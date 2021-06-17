@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/82kg/autoBuildOP>
 
-name: lean-lede
+name: OpenWrt
 on:
   workflow_dispatch:
     inputs:
@@ -260,6 +260,8 @@ jobs:
           rm -rf ./artifact/
           mkdir -p ./artifact/
           find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
+          mv -f immortalwrt-x86-64-generic-rootfs.tar.gz ./artifact/
+
        # find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
           
       - name: Upload artifact
