@@ -63,6 +63,7 @@ jobs:
         run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
       
       - name: add helloword
+        working-directory: ./openwrt
         run: echo "src-git helloworld https://github.com/fw876/helloworld" >> feeds.conf.default
 
       - name: Update feeds
