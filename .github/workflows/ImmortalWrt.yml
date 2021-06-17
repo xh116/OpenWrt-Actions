@@ -95,7 +95,7 @@ jobs:
           rm -rf ./artifact/
           mkdir -p ./artifact/
           find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
-          mv -f immortalwrt-x86-64-generic-rootfs.tar.gz ./artifact/
+          find ./bin/targets/ -name "*rootfs.tar*" | xargs -i mv -f {} ./artifact/
        #find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
   
       - name: Upload artifact
@@ -104,16 +104,15 @@ jobs:
           name: ImmortalWrt 
           path: openwrt/artifact
 
-      - name: docker login
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Publish to Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
         env:
-          DOCKER_USER: ${{secrets.DOCKER_USER}}
-          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-        run: |
-          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
-      - name: Build the Docker image
-        working-directory: ./openwrt
-
-        run: docker build immortalwrt-x86-64-generic-rootfs.tar.gz --tag xh116/immortalwrt:latest
-      
-      - name: Docker Push
-        run: docker push xh116/immortalwrt   
+          FIRMWARE: openwrt/artifact/immortalwrt-x86-64-generic-rootfs.tar.gz
+        with:
+          name: xh116/immortalwrt
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+          buildargs: FIRMWARE
+          tags: "latest,r3283-a4e2bd54c"
