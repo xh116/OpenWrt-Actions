@@ -18,6 +18,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
       - name: Checkout
@@ -102,17 +103,14 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: ImmortalWrt 
-          path: openwrt/artifact
-
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@master
-        env:
-          FIRMWARE: openwrt/artifact/immortalwrt-x86-64-generic-rootfs.tar.gz
+          path: openwrt/artifact  
+          
+      - name: Upload release asset
+        if: github.event == 'release'
+        uses: svenstaro/upload-release-action@v2
         with:
-          name: xh116/immortalwrt
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_TOKEN }}
-          buildargs: FIRMWARE
-          tags: "latest,r3283-a4e2bd54c"
+          repo_token: ${{ secrets.RELEASE_TOKEN }}
+          file: openwrt/artifact/immortalwrt-x86-64-generic-rootfs.tar.gz
+          tag: ${{ github.ref }}
+          file_glob: true     
+ 
