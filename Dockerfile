@@ -1,7 +1,7 @@
 
 FROM scratch
 
-ADD openwrt.tar.gz /
+ADD openwrt-x86-64-generic-rootfs.tar.gz /
 
 EXPOSE  80 443 7681
 
