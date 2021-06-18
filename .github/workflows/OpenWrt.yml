@@ -95,17 +95,6 @@ jobs:
           name: OpenWrt firmware
           path: openwrt/artifact
           
-      - name: Checkout
-        uses: actions/checkout@v2
-        
-      - name: Upload firmware to release
-        uses: softprops/action-gh-release@v1
-        if: steps.tag.outputs.status == 'success' && !cancelled()
-        env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-        with:
-          tag_name: ${{ steps.tag.outputs.release_tag }}
-          files: ./artifact/openwrt-x86-64-generic-rootfs.tar.gz
 
       - name: Delete workflow runs
         uses: GitRML/delete-workflow-runs@main
