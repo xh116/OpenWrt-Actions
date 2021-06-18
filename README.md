@@ -15,7 +15,8 @@ This actions will build firmware with only ssrp.
 ``docker network create -d macvlan --subnet=10.0.0.0/24 --gateway=10.0.0.1 --aux-address="exclude_host=10.0.0.123" --ip-range=10.0.0.222/28  -o parent=eth0 macvlan01``
 
 
-```docker run -d --name=openwrt --privileged \  
+```
+docker run -d --name=openwrt --privileged \  
 
 -v /home/rancher/docker/openwrt/shadowsocksr:/etc/config/shadowsocksr \  
 
