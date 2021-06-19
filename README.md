@@ -16,19 +16,6 @@ This actions will build firmware with only ssrp.
 
 
 ```
-docker run -d --name=openwrt --privileged \  
+docker run  --privileged --restart=always --name openwrt -d --network macvlan01 -v /home/rancher/docker/openwrt/shadowsocksr:/etc/config/shadowsocksr -v /home/rancher/docker/openwrt/network:/etc/config/network -v /home/rancher/docker/openwrt/shadow:/etc/shadow xh116/openwrt /sbin/init
 
--v /home/rancher/docker/openwrt/shadowsocksr:/etc/config/shadowsocksr \  
-
--v /home/rancher/docker/openwrt/network:/etc/config/network \  
-
--v /home/rancher/docker/openwrt/shadow:/etc/shadow  /sbin/init \  
-
---restart=always \  
-
---network=macvlan01 \  
-
---ip=10.0.0.200 \  
-
-xh116/openwrt 
 
