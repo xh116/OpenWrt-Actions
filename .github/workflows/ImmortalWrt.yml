@@ -74,7 +74,7 @@ jobs:
           
       - name: Load custom configuration
         run: |
-          mv .config openwrt/.config
+          mv Immortalwrt/.config openwrt/.config
 
 
       - name: Make download
