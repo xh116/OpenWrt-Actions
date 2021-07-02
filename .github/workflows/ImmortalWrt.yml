@@ -97,7 +97,7 @@ jobs:
           mkdir -p ./artifact/
           find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
           find ./bin/targets/ -name "*rootfs.tar*" | xargs -i mv -f {} ./artifact/
-       #find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
+          find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
        
           
       - name: Upload artifact
