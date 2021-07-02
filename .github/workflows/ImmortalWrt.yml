@@ -98,7 +98,8 @@ jobs:
           find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
           find ./bin/targets/ -name "*rootfs.tar*" | xargs -i mv -f {} ./artifact/
           find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
-       
+          mv ./.config ./artifact/
+
           
       - name: Upload artifact
         uses: actions/upload-artifact@master
