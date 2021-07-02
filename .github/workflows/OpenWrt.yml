@@ -64,7 +64,7 @@ jobs:
           
       - name: Load custom configuration
         run: |
-          mv config/.config openwrt/.config
+          mv OpenWrt/.config openwrt/.config
 
       - name: Make download
         working-directory: ./openwrt
