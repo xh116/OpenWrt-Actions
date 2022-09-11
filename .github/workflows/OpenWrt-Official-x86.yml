@@ -1,0 +1,124 @@
+#
+# This is free software, lisence use MIT.
+# 
+# Copyright (C) 2019 P3TERX <https://p3terx.com>
+# Copyright (C) 2019 KFERMercer <KFER.Mercer@gmail.com>
+# 
+# <https://github.com/KFERMercer/OpenWrt-CI>
+# <https://github.com/82kg/autoBuildOP>
+
+name: OpenWrt-CI_x86
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Manual Trigger'
+        required: false
+        default: 'Build'
+  #schedule:
+    #- cron: 0 23 * * *
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Initialization environment
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          docker rmi `docker images -q`
+          sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d /usr/local/lib/android
+          sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* \
+          adoptopenjdk* mysql* php* mongodb* dotnet* moby* snapd* || true
+          sudo -E apt-get update 
+          sudo -E apt-get -y install ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
+          bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib git \
+          gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev libmpc-dev \
+          libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz mkisofs msmtp nano \
+          ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip qemu-utils rsync scons squashfs-tools \
+          subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev          
+          sudo -E apt-get -y autoremove --purge
+          sudo -E apt-get clean
+          df -h
+
+      - name: Clone source code
+        env: 
+          REPO_URL: https://github.com/openwrt/openwrt.git
+          REPO_BRANCH: openwrt-21.02
+        run: |
+          git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+          git pull
+          
+      - name: Add helloword
+        working-directory: ./openwrt
+        run: |
+          echo "src-git helloworld https://github.com/fw876/helloworld" >> feeds.conf.default
+        # echo "src-git infinityfreedom https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom.git"  >> feeds.conf.default
+        # echo "src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall.git;packages" >> feeds.conf.default
+        # echo "src-git passwall_luci https://github.com/xiaorouji/openwrt-passwall.git;luci" >> feeds.conf.default
+     
+      - name: Update feeds and dependencies
+        working-directory: ./openwrt
+        run: |
+          ./scripts/feeds update -a
+          ./scripts/feeds install -a 
+          ./scripts/feeds update packages
+          rm -rf feeds/packages/lang/golang
+          svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang          
+          mkdir -p package/helloworld
+          for i in "dns2socks" "microsocks" "ipt2socks" "pdnsd-alt" "redsocks2"; do \
+          svn checkout "https://github.com/immortalwrt/packages/trunk/net/$i" "package/helloworld/$i"; \
+          done
+      
+      #- name: Set EN as default language
+       # working-directory: ./openwrt
+        #run: |
+         # sed -i '/option lang auto/s/auto/en/g'  ./feeds/luci/modules/luci-base/root/etc/config/luci   
+          
+      - name: Load custom configuration
+        run: |
+          mv OpenWrt_Official/.config_x86 openwrt/.config
+
+      - name: Make download
+        working-directory: ./openwrt
+        run: |
+          make download -j8
+          find dl -size -1024c -exec ls -l {} \;
+          find dl -size -1024c -exec rm -f {} \;
+                     
+      - name: Compile firmware
+        working-directory: ./openwrt
+        run: |
+          echo -e "$(nproc) thread build."
+          make -j$(nproc) V=s
+          
+      - name: Assemble artifact
+        working-directory: ./openwrt
+        run: |
+          rm -rf ./artifact/
+          mkdir -p ./artifact/
+          find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
+          find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
+          find ./bin/targets/ -name "*rootfs.tar*" | xargs -i mv -f {} ./artifact/
+          mv ./.config ./artifact/
+
+       # find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: OpenWrt firmware
+          path: openwrt/artifact
+          
+
+      - name: Delete workflow runs
+        uses: GitRML/delete-workflow-runs@main
+        with:
+          retain_days: 1
+          keep_minimum_runs: 5     
+ 
