@@ -73,7 +73,7 @@ jobs:
           
       - name: Load custom configuration
         run: |
-          mv OpenWrt-Lean/.config_helloworld openwrt/.config
+          mv OpenWrt_Lean/.config_helloworld openwrt/.config
 
       - name: Make download
         working-directory: ./openwrt
