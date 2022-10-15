@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/82kg/autoBuildOP>
 
-name: OpenWrt-CI-lean-helloworld
+name: OpenWrt-CI-lean-passwall
 on:
   workflow_dispatch:
     inputs:
@@ -73,7 +73,7 @@ jobs:
           
       - name: Load custom configuration
         run: |
-          mv OpenWrt_Lean/.config_helloworld openwrt/.config
+          mv OpenWrt_Lean/.config_passwall openwrt/.config
 
       - name: Make download
         working-directory: ./openwrt
