@@ -36,12 +36,12 @@ jobs:
           sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* adoptopenjdk* mysql* php* mongodb* dotnet* moby* snapd* || true
           sudo -E apt-get update 
           sudo -E apt-get install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
-                bzip2 ccache cmake cpio curl device-tree-compiler ecj fastjar flex gawk gettext gcc-multilib g++-multilib \
-                git gperf haveged help2man intltool lib32gcc1 libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \
-                libmpc-dev libmpfr-dev libncurses5-dev libncursesw5 libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \
-                mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip python3-ply \
-                python-docutils qemu-utils re2c rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \
-                vim wget xmlto xxd zlib1g-dev
+                bzip2 ccache clang clangd cmake cpio curl device-tree-compiler ecj fastjar flex gawk gettext gcc-multilib \
+                g++-multilib git gperf haveged help2man intltool lib32gcc-s1 libc6-dev-i386 libelf-dev libglib2.0-dev \
+                libgmp3-dev libltdl-dev libmpc-dev libmpfr-dev libncurses5-dev libncursesw5 libncursesw5-dev libreadline-dev \
+                libssl-dev libtool lld lldb lrzsz mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 \
+                python3 python3-pip python3-ply qemu-utils re2c rsync scons squashfs-tools subversion swig \
+                texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
           df -h
@@ -50,8 +50,10 @@ jobs:
         env: 
           REPO_URL: https://github.com/immortalwrt/immortalwrt
           REPO_BRANCH: master
-        run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
-       
+        run: |
+          git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+          cd openwrt && git clone https://github.com/immortalwrt/homeproxy.git package/homeproxy  
+
 
       - name: Update feeds
         working-directory: ./openwrt
@@ -67,7 +69,6 @@ jobs:
       - name: Load custom configuration
         run: |
           mv OpenWrt_Official/Immortalwrt/.config_x86 openwrt/.config
-
 
       - name: Make download
         working-directory: ./openwrt
