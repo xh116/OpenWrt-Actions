@@ -84,19 +84,19 @@ jobs:
       - name: Load custom configuration
         run: |
           mv OpenWrt_Official/.config_arm64 openwrt/.config
+          
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
+        timeout-minutes: 5                               
 
       - name: Make download
         working-directory: ./openwrt
         run: |
           make download -j8
           find dl -size -1024c -exec ls -l {} \;
-          find dl -size -1024c -exec rm -f {} \;  
- 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
-        timeout-minutes: 5          
-                     
+          find dl -size -1024c -exec rm -f {} \;   
+
       - name: Compile firmware
         working-directory: ./openwrt
         run: |
