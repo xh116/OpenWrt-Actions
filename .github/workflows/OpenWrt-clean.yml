@@ -11,10 +11,11 @@ name: OpenWrt-CI
 on:
   workflow_dispatch:
     inputs:
-      name:
-        description: 'Manual Trigger'
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
         required: false
-        default: 'Build'
+        default: false
   #schedule:
     #- cron: 0 23 * * *
     
@@ -83,6 +84,11 @@ jobs:
       - name: Load custom configuration
         run: |
           mv OpenWrt_Official/.config openwrt/.config
+          
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
+        timeout-minutes: 15           
 
       - name: Make download
         working-directory: ./openwrt
