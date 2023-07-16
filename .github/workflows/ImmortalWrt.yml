@@ -70,12 +70,7 @@ jobs:
       - name: Load custom configuration
         run: |
           mv OpenWrt_Official/Immortalwrt/.config_x86 openwrt/.config
-          cd ./openwrt
-          
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
-        timeout-minutes: 5          
+          cd ./openwrt          
 
       - name: Make download
         working-directory: ./openwrt
@@ -83,6 +78,12 @@ jobs:
           make download -j8
           find dl -size -1024c -exec ls -l {} \;
           find dl -size -1024c -exec rm -f {} \;
+          
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
+        timeout-minutes: 5          
+          
                      
       - name: Compile firmware
         working-directory: ./openwrt
