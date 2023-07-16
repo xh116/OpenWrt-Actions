@@ -11,10 +11,11 @@ name: ImmortialWrt-CI_x86
 on:
   workflow_dispatch:
     inputs:
-      name:
-        description: 'Manual Trigger'
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled'
         required: false
-        default: 'Build'
+        default: false
   #schedule:
     #- cron: 0 23 * * *
     
@@ -69,6 +70,12 @@ jobs:
       - name: Load custom configuration
         run: |
           mv OpenWrt_Official/Immortalwrt/.config_x86 openwrt/.config
+          cd ./openwrt
+          
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
+        timeout-minutes: 5          
 
       - name: Make download
         working-directory: ./openwrt
