@@ -11,10 +11,12 @@ name: OpenWrt-CI-arm64
 on:
   workflow_dispatch:
     inputs:
-      name:
-        description: 'Manual Trigger'
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled'
         required: false
-        default: 'Build'
+        default: false
+
   #schedule:
     #- cron: 0 23 * * *
     
@@ -88,7 +90,13 @@ jobs:
         run: |
           make download -j8
           find dl -size -1024c -exec ls -l {} \;
-          find dl -size -1024c -exec rm -f {} \;
+          find dl -size -1024c -exec rm -f {} \;  
+          cd ./openwrt
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
+        timeout-minutes: 5          
                      
       - name: Compile firmware
         working-directory: ./openwrt
