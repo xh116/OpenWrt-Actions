@@ -5,7 +5,9 @@ Thanks @coolsnowwolf @P3TERX @KFERMercer @82kg
 
 This actions will build firmware with only ssrp.
 
-![image](https://raw.githubusercontent.com/xh116/OpenWrt-Actions/master/screenshot.png)
 
 
 
+
+<img width="1079" alt="ssrp" src="https://github.com/xh116/OpenWrt-Actions/assets/37950502/0619b25c-af06-4bc1-8ca3-ae5793b00fdf">
+<img width="1056" alt="passwall2" src="https://github.com/xh116/OpenWrt-Actions/assets/37950502/64ab73df-1613-4708-bd2d-c150b73140c7">
