@@ -3,7 +3,9 @@
 
 Thanks @coolsnowwolf @P3TERX @KFERMercer @82kg
 
-This actions will build firmware with only ssrp.
+1,   build from lean source with only ssrp.
+2,   build from official source with only passwall2.
+
 
 
 
