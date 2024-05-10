@@ -76,7 +76,7 @@ jobs:
           
       - name: Load custom configuration
         run: |
-          mv OpenWrt_Official/.config-arm openwrt/.config
+          mv OpenWrt_Official/.config openwrt/.config
            
           
       - name: Setup tmate session
