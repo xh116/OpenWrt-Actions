@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # <https://github.com/82kg/autoBuildOP>
 
-name: OpenWrt-Official
+name: OpenWrt-Official-R2S
 on:
   workflow_dispatch:
     inputs:
