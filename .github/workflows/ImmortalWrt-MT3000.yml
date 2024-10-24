@@ -102,7 +102,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: OpenWrt firmware
+          name: MT3000
           path: immortalwrt/artifact
           
       - name: Delete workflow runs
