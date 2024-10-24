@@ -55,7 +55,7 @@ jobs:
           git clone -b $REPO_BRANCH --single-branch --filter=blob:none $REPO_URL   
           git pull
           
-      - name: Add helloword
+      - name: Add Services
         working-directory: ./immortalwrt
         run: |
         #  echo "src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main" >> feeds.conf.default
