@@ -56,7 +56,7 @@ jobs:
           git pull
           
       - name: Add helloword
-        working-directory: ./openwrt
+        working-directory: ./immortalwrt
         run: |
         #  echo "src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main" >> feeds.conf.default
         #  echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main" >> feeds.conf.default     
@@ -76,7 +76,7 @@ jobs:
           mv  ImmortalWrt/.config-mt3000 immortalwrt/.config
                
       - name: Make download
-        working-directory: ./openwrt
+        working-directory: ./immortalwrt
         run: |
           make download -j8
           find dl -size -1024c -exec ls -l {} \;
