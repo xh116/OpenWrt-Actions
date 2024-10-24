@@ -94,13 +94,13 @@ jobs:
         run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
-          find ./bin/targets/ -name "*sysupgrade*img*" | xargs -i mv -f {} ./artifact/
+          find ./bin/targets/ -name "*sysupgrade*" | xargs -i mv -f {} ./artifact/
           mv ./.config ./artifact/
 
        # find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
           
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: OpenWrt firmware
           path: immortalwrt/artifact
