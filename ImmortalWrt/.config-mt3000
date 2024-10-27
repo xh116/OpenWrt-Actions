@@ -4935,7 +4935,7 @@ CONFIG_LUCI_JSMIN=y
 # CONFIG_LUCI_LANG_tr is not set
 # CONFIG_LUCI_LANG_uk is not set
 # CONFIG_LUCI_LANG_vi is not set
-# CONFIG_LUCI_LANG_zh_Hans is not set
+CONFIG_LUCI_LANG_zh_Hans=y
 # CONFIG_LUCI_LANG_zh_Hant is not set
 # end of Translations
 
@@ -5219,7 +5219,7 @@ CONFIG_PACKAGE_luci-lib-nixio_openssl=y
 
 CONFIG_PACKAGE_default-settings=y
 # CONFIG_PACKAGE_default-settings-chn is not set
-# CONFIG_PACKAGE_luci-i18n-argon-config-zh-cn is not set
+CONFIG_PACKAGE_luci-i18n-argon-config-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-base-ar is not set
 # CONFIG_PACKAGE_luci-i18n-base-bg is not set
 # CONFIG_PACKAGE_luci-i18n-base-bn is not set
@@ -5252,10 +5252,10 @@ CONFIG_PACKAGE_default-settings=y
 # CONFIG_PACKAGE_luci-i18n-base-tr is not set
 # CONFIG_PACKAGE_luci-i18n-base-uk is not set
 # CONFIG_PACKAGE_luci-i18n-base-vi is not set
-# CONFIG_PACKAGE_luci-i18n-base-zh-cn is not set
+CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-base-zh-tw is not set
 # CONFIG_PACKAGE_luci-i18n-diskman-pl is not set
-# CONFIG_PACKAGE_luci-i18n-diskman-zh-cn is not set
+CONFIG_PACKAGE_luci-i18n-diskman-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-diskman-zh-tw is not set
 # CONFIG_PACKAGE_luci-i18n-firewall-ar is not set
 # CONFIG_PACKAGE_luci-i18n-firewall-bg is not set
@@ -5289,9 +5289,9 @@ CONFIG_PACKAGE_default-settings=y
 # CONFIG_PACKAGE_luci-i18n-firewall-tr is not set
 # CONFIG_PACKAGE_luci-i18n-firewall-uk is not set
 # CONFIG_PACKAGE_luci-i18n-firewall-vi is not set
-# CONFIG_PACKAGE_luci-i18n-firewall-zh-cn is not set
+CONFIG_PACKAGE_luci-i18n-firewall-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-firewall-zh-tw is not set
-# CONFIG_PACKAGE_luci-i18n-homeproxy-zh-cn is not set
+CONFIG_PACKAGE_luci-i18n-homeproxy-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-package-manager-ar is not set
 # CONFIG_PACKAGE_luci-i18n-package-manager-bg is not set
 # CONFIG_PACKAGE_luci-i18n-package-manager-bn is not set
@@ -5324,7 +5324,7 @@ CONFIG_PACKAGE_default-settings=y
 # CONFIG_PACKAGE_luci-i18n-package-manager-tr is not set
 # CONFIG_PACKAGE_luci-i18n-package-manager-uk is not set
 # CONFIG_PACKAGE_luci-i18n-package-manager-vi is not set
-# CONFIG_PACKAGE_luci-i18n-package-manager-zh-cn is not set
+CONFIG_PACKAGE_luci-i18n-package-manager-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-package-manager-zh-tw is not set
 # CONFIG_PACKAGE_luci-i18n-samba4-ar is not set
 # CONFIG_PACKAGE_luci-i18n-samba4-bg is not set
@@ -5358,7 +5358,7 @@ CONFIG_PACKAGE_default-settings=y
 # CONFIG_PACKAGE_luci-i18n-samba4-tr is not set
 # CONFIG_PACKAGE_luci-i18n-samba4-uk is not set
 # CONFIG_PACKAGE_luci-i18n-samba4-vi is not set
-# CONFIG_PACKAGE_luci-i18n-samba4-zh-cn is not set
+CONFIG_PACKAGE_luci-i18n-samba4-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-samba4-zh-tw is not set
 # CONFIG_PACKAGE_luci-i18n-ttyd-ar is not set
 # CONFIG_PACKAGE_luci-i18n-ttyd-bg is not set
@@ -5392,7 +5392,7 @@ CONFIG_PACKAGE_default-settings=y
 # CONFIG_PACKAGE_luci-i18n-ttyd-tr is not set
 # CONFIG_PACKAGE_luci-i18n-ttyd-uk is not set
 # CONFIG_PACKAGE_luci-i18n-ttyd-vi is not set
-# CONFIG_PACKAGE_luci-i18n-ttyd-zh-cn is not set
+CONFIG_PACKAGE_luci-i18n-ttyd-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-ttyd-zh-tw is not set
 # end of LuCI
 
