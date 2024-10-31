@@ -11,7 +11,7 @@ on:
         required: false
 env:
   SCHEDULED_RUNS_OLDER_THAN: "7"
-  SCHEDULED_RUNS_TO_KEEP: "5"
+  SCHEDULED_RUNS_TO_KEEP: "0"
   
 jobs:
   clean-logs:
