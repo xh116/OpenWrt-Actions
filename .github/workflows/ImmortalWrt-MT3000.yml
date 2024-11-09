@@ -74,10 +74,12 @@ jobs:
       - name: Load custom configuration
         run: |
           mv  ImmortalWrt/.config-mt3000 immortalwrt/.config
+          
                
       - name: Make download
         working-directory: ./immortalwrt
         run: |
+          make defconfig
           make download -j8
           find dl -size -1024c -exec ls -l {} \;
           find dl -size -1024c -exec rm -f {} \;
