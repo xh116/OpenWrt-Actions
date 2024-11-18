@@ -51,8 +51,8 @@ jobs:
           echo "src-git helloworld https://github.com/fw876/helloworld" >> feeds.conf.default          
           echo "src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main" >> feeds.conf.default
           echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main" >> feeds.conf.default  
-          git clone https://github.com/gngpp/luci-theme-design.git  package/luci-theme-design        
-          git clone https://github.com/gngpp/luci-app-design-config.git package/luci-app-design-config
+          git clone https://github.com/SAENE/luci-theme-design.git package/luci-theme-design          
+           
           
       - name: Update feeds
         working-directory: ./openwrt
