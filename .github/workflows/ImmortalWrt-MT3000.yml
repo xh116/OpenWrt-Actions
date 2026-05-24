@@ -104,7 +104,7 @@ jobs:
        # find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
           
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@main
         with:
           name: MT3000
           path: immortalwrt/artifact
